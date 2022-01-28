@@ -39,6 +39,10 @@ export default class  AuthController {
       expiresIn: "10 days",
     })
     token = token.toJSON()
+    token.user = {
+      name: user.name,
+      avatar: user.avatar
+    }
     response.redirect('http://localhost:8080/login?token='+JSON.stringify(token))
   }
 }
